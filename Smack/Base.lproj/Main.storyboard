@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Reveal View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -36,13 +41,50 @@
                     <view key="view" contentMode="scaleToFill" id="Hp1-2a-9Rx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oEQ-06-KZd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKh-LB-wZ2">
+                                        <rect key="frame" x="12" y="50" width="24" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="PAD-Or-Qho"/>
+                                            <constraint firstAttribute="width" constant="24" id="q9o-4Q-B7h"/>
+                                        </constraints>
+                                        <state key="normal" image="smackBurger"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opW-m9-RSo">
+                                        <rect key="frame" x="163" y="47.5" width="49.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.29019607843137252" green="0.30196078431372547" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WKh-LB-wZ2" firstAttribute="leading" secondItem="oEQ-06-KZd" secondAttribute="leading" constant="12" id="Eqs-Ob-3G9"/>
+                                    <constraint firstAttribute="height" constant="80" id="g2W-B9-FeZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="WKh-LB-wZ2" secondAttribute="bottom" constant="12" id="gu6-NH-Oy3"/>
+                                    <constraint firstItem="opW-m9-RSo" firstAttribute="centerX" secondItem="oEQ-06-KZd" secondAttribute="centerX" id="hkM-q6-PTh"/>
+                                    <constraint firstItem="opW-m9-RSo" firstAttribute="centerY" secondItem="WKh-LB-wZ2" secondAttribute="centerY" id="kU0-4I-RVP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oEQ-06-KZd" firstAttribute="trailing" secondItem="NYd-zG-cds" secondAttribute="trailing" id="GN7-qU-a8y"/>
+                            <constraint firstItem="oEQ-06-KZd" firstAttribute="leading" secondItem="NYd-zG-cds" secondAttribute="leading" id="MWG-t3-pk0"/>
+                            <constraint firstItem="oEQ-06-KZd" firstAttribute="top" secondItem="Hp1-2a-9Rx" secondAttribute="top" id="rLs-Qu-tAa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NYd-zG-cds"/>
                     </view>
+                    <connections>
+                        <outlet property="menuButton" destination="WKh-LB-wZ2" id="yfZ-cO-IBY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y94-wk-Cm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="575"/>
+            <point key="canvasLocation" x="1068" y="574.36281859070471"/>
         </scene>
         <!--Channel View Controller-->
         <scene sceneID="t6I-u4-xxv">
@@ -60,4 +102,7 @@
             <point key="canvasLocation" x="1068" y="-305"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="smackBurger" width="40" height="40"/>
+    </resources>
 </document>
