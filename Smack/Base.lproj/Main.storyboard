@@ -26,8 +26,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="r0D-eg-TIy" kind="custom" identifier="swRear" customClass="SWRevealViewControllerSegueSetController" id="1Oj-qP-3v4"/>
-                        <segue destination="NqZ-WS-sQa" kind="custom" identifier="swFront" customClass="SWRevealViewControllerSegueSetController" id="eBN-vl-Hyw"/>
+                        <segue destination="r0D-eg-TIy" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="1Oj-qP-3v4"/>
+                        <segue destination="NqZ-WS-sQa" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="eBN-vl-Hyw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
