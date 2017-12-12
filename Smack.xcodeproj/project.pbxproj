@@ -16,6 +16,7 @@
 		2763CF7E1FDF093000CF271F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2763CF7C1FDF093000CF271F /* LaunchScreen.storyboard */; };
 		2763CF891FDF093000CF271F /* SmackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CF881FDF093000CF271F /* SmackTests.swift */; };
 		279120B71FE022DF00B45E5D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279120B61FE022DF00B45E5D /* GradientView.swift */; };
+		279120BA1FE02C7900B45E5D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279120B91FE02C7900B45E5D /* Constants.swift */; };
 		51E10237471C328C02DF07E9 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9294CC85F9570E04AD536A /* Pods_Smack.framework */; };
 		78E7BA926F252D31A9EC8490 /* Pods_SmackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4828DD11E42018B8236CBD94 /* Pods_SmackTests.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		2763CF881FDF093000CF271F /* SmackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmackTests.swift; sourceTree = "<group>"; };
 		2763CF8A1FDF093000CF271F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		279120B61FE022DF00B45E5D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		279120B91FE02C7900B45E5D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4828DD11E42018B8236CBD94 /* Pods_SmackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602682A8EAFFC025149E415B /* Pods-Smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.debug.xcconfig"; sourceTree = "<group>"; };
 		7CD7C172A451F27D59FAEB75 /* Pods-SmackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmackTests/Pods-SmackTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		2763CF721FDF093000CF271F /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				279120B81FE02C6400B45E5D /* Utilities */,
 				27165BAC1FDF23E100B64177 /* Controllers */,
 				27165BAB1FDF23DC00B64177 /* Views */,
 				27165BAA1FDF23D700B64177 /* Models */,
@@ -151,6 +154,14 @@
 				2763CF8A1FDF093000CF271F /* Info.plist */,
 			);
 			path = SmackTests;
+			sourceTree = "<group>";
+		};
+		279120B81FE02C6400B45E5D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				279120B91FE02C7900B45E5D /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		B2D2C1DA1662D14905A9A571 /* Pods */ = {
@@ -381,6 +392,7 @@
 				279120B71FE022DF00B45E5D /* GradientView.swift in Sources */,
 				27165BB01FDF241000B64177 /* ChannelViewController.swift in Sources */,
 				27165BA91FDF205B00B64177 /* SWRevealViewController.m in Sources */,
+				279120BA1FE02C7900B45E5D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
