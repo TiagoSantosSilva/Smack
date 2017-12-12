@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="1068" y="-305.39730134932535"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="SRr-v8-6k5">
             <objects>
-                <viewController id="Lwj-xQ-iZK" sceneMemberID="viewController">
+                <viewController id="Lwj-xQ-iZK" customClass="LoginViewController" customModule="Smack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bIk-FV-wRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,14 +235,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closeButton" translatesAutoresizingMaskIntoConstraints="NO" id="DIH-Fn-wmU">
-                                <rect key="frame" x="329" y="30" width="28" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="DIH-Fn-wmU" secondAttribute="height" multiplier="1:1" id="EY9-YC-4hs"/>
-                                    <constraint firstAttribute="width" constant="28" id="ccd-9z-tjl"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="28" id="dL3-G8-Adb"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="C4R-hy-V3T">
                                 <rect key="frame" x="62.5" y="141" width="250" height="94"/>
                                 <subviews>
@@ -270,7 +262,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92b-4w-pQv">
                                         <rect key="frame" x="0.0" y="92" width="250" height="2"/>
@@ -304,23 +296,41 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="Lwj-xQ-iZK" eventType="touchUpInside" id="Bkx-Bn-WpV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emt-Hd-bxI">
+                                <rect key="frame" x="332" y="30" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="emt-Hd-bxI" secondAttribute="height" multiplier="1:1" id="cjG-FR-e2W"/>
+                                    <constraint firstAttribute="height" constant="23" id="kfJ-mN-NX3"/>
+                                    <constraint firstAttribute="width" constant="23" id="xDq-wB-xlb"/>
+                                </constraints>
+                                <state key="normal" image="closeButton"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="Lwj-xQ-iZK" eventType="touchUpInside" id="MrT-jY-T7C"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gk3-5t-A92" firstAttribute="top" secondItem="C4R-hy-V3T" secondAttribute="bottom" constant="40" id="0aT-I8-4M2"/>
                             <constraint firstItem="PZe-F2-hBw" firstAttribute="centerX" secondItem="bIk-FV-wRa" secondAttribute="centerX" id="2Tp-mD-Pnw"/>
-                            <constraint firstItem="R9x-JG-H7t" firstAttribute="trailing" secondItem="DIH-Fn-wmU" secondAttribute="trailing" constant="18" id="DEa-PX-z3w"/>
                             <constraint firstItem="q6l-3U-jMv" firstAttribute="top" secondItem="R9x-JG-H7t" secondAttribute="top" constant="60" id="Ekk-gC-Z1T"/>
                             <constraint firstItem="C4R-hy-V3T" firstAttribute="centerX" secondItem="bIk-FV-wRa" secondAttribute="centerX" id="Etc-8e-QTJ"/>
-                            <constraint firstItem="DIH-Fn-wmU" firstAttribute="top" secondItem="R9x-JG-H7t" secondAttribute="top" constant="10" id="Jc7-aM-p2O"/>
                             <constraint firstItem="q6l-3U-jMv" firstAttribute="centerX" secondItem="bIk-FV-wRa" secondAttribute="centerX" id="Nkr-jy-rof"/>
+                            <constraint firstItem="emt-Hd-bxI" firstAttribute="top" secondItem="R9x-JG-H7t" secondAttribute="top" constant="10" id="PdI-y2-djy"/>
                             <constraint firstItem="PZe-F2-hBw" firstAttribute="top" secondItem="gk3-5t-A92" secondAttribute="bottom" id="mR7-A9-1Uk"/>
                             <constraint firstItem="C4R-hy-V3T" firstAttribute="top" secondItem="q6l-3U-jMv" secondAttribute="bottom" constant="40" id="mcu-ys-8hr"/>
                             <constraint firstItem="gk3-5t-A92" firstAttribute="centerX" secondItem="bIk-FV-wRa" secondAttribute="centerX" id="ov6-8c-Bh3"/>
+                            <constraint firstItem="R9x-JG-H7t" firstAttribute="trailing" secondItem="emt-Hd-bxI" secondAttribute="trailing" constant="20" id="qpr-nM-EG2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R9x-JG-H7t"/>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="emt-Hd-bxI" id="FNq-6e-pV0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhJ-wg-Lfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
