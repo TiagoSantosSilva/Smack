@@ -30,7 +30,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
-            guard let email = emailTxt.text, emailTxt.text != "" else { return }
+        guard let email = emailTxt.text, emailTxt.text != "" else { return }
         guard let username = userNameTxt.text, userNameTxt.text != "" else { return }
         guard let password = passwordTxt.text, passwordTxt.text != "" else { return }
         
