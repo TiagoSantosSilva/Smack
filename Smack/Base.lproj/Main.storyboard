@@ -498,8 +498,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nex-23-5cB"/>
                     </view>
+                    <connections>
+                        <segue destination="GM1-dP-p1R" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="W5z-X4-j5T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMG-xd-leC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GM1-dP-p1R" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3116" y="-305.39730134932535"/>
         </scene>

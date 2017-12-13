@@ -17,6 +17,6 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: UnwindToChannel, sender: nil)
     }
 }

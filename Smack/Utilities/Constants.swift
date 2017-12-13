@@ -12,4 +12,4 @@ import Foundation
 
 let ToLogin = "toLogin"
 let ToCreateAccount = "toCreateAccount"
-
+let UnwindToChannel = "unwindToChannel"
