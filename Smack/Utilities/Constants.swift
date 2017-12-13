@@ -11,4 +11,5 @@ import Foundation
 // Segues
 
 let ToLogin = "toLogin"
+let ToCreateAccount = "toCreateAccount"
 
