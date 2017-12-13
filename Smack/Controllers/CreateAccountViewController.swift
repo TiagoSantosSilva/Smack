@@ -29,8 +29,16 @@ class CreateAccountViewController: UIViewController {
         performSegue(withIdentifier: Unwind_To_Channel, sender: nil)
     }
     
-    
     @IBAction func createAccountButtonPressed(_ sender: Any) {
+            guard let email = emailTxt.text, emailTxt.text != "" else { return }
+        guard let username = userNameTxt.text, userNameTxt.text != "" else { return }
+        guard let password = passwordTxt.text, passwordTxt.text != "" else { return }
+        
+        AuthenticationService.instance.registerUser(email: email, password: password) { (sucess) in
+            if sucess {
+                print("Registered user.")
+            }
+        }
     }
     
     @IBAction func generateBackgroundPressed(_ sender: Any) {

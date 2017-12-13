@@ -60,9 +60,10 @@ class AuthenticationService {
         
         Alamofire.request(Register_Url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
             
-            if response.result == nil {
+            if response.result.error == nil {
                 completion(true)
-            } else {
+            }
+            else {
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
