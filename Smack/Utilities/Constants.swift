@@ -29,3 +29,10 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 
 let Base_Url = "http://localhost:3005/v1/"
 let Register_Url = "\(Base_Url)account/register"
+let Login_Url = "\(Base_Url)account/login"
+
+// Headers
+
+let Request_Header = [
+"Content-Type": "application/json; charset=utf-8"
+]
