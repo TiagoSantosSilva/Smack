@@ -441,6 +441,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="createAccountButtonPressed:" destination="JQS-PC-mRO" eventType="touchUpInside" id="v7x-9u-kjH"/>
                                     <action selector="loginButtonPressed:" destination="Lwj-xQ-iZK" eventType="touchUpInside" id="owf-8J-MCK"/>
                                 </connections>
                             </button>
@@ -453,6 +454,9 @@
                                 <state key="normal" title="Choose avatar">
                                     <color key="titleColor" red="0.61568627450980395" green="0.74509803921568629" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseAvatarPressed:" destination="JQS-PC-mRO" eventType="touchUpInside" id="QZA-2Y-XLT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJe-nX-5pa">
                                 <rect key="frame" x="62" y="443" width="250" height="50"/>
@@ -466,6 +470,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountButtonPressed:" destination="Lwj-xQ-iZK" eventType="touchUpInside" id="DyC-0W-dev"/>
+                                    <action selector="generateBackgroundPressed:" destination="JQS-PC-mRO" eventType="touchUpInside" id="Jzf-Ji-AsW"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="v41-IF-Gyr">
@@ -499,6 +504,13 @@
                         <viewLayoutGuide key="safeArea" id="Nex-23-5cB"/>
                     </view>
                     <connections>
+                        <outlet property="chooseAvatarButton" destination="8m1-39-Z1c" id="TUc-F0-Bov"/>
+                        <outlet property="createAccountButton" destination="9YA-EF-1AL" id="Dlx-sr-pn5"/>
+                        <outlet property="emailTxt" destination="JFw-RW-KOc" id="ZQ4-g6-XvV"/>
+                        <outlet property="generateBackgroundButton" destination="gJe-nX-5pa" id="bvU-zS-vIL"/>
+                        <outlet property="passwordTxt" destination="ECR-mY-FKG" id="C6Q-UI-yzw"/>
+                        <outlet property="userImage" destination="v41-IF-Gyr" id="9bU-tE-ogD"/>
+                        <outlet property="userNameTxt" destination="fAc-5I-lpF" id="g0Z-Yy-b1h"/>
                         <segue destination="GM1-dP-p1R" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="W5z-X4-j5T"/>
                     </connections>
                 </viewController>

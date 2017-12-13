@@ -60,7 +60,7 @@ class AuthenticationService {
         
         Alamofire.request(Register_Url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
             
-            if response.result == nil { // warning being shout here.. need to refractor it.
+            if response.result == nil {
                 completion(true)
             } else {
                 completion(false)
