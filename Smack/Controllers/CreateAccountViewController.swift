@@ -34,10 +34,12 @@ class CreateAccountViewController: UIViewController {
         guard let username = userNameTxt.text, userNameTxt.text != "" else { return }
         guard let password = passwordTxt.text, passwordTxt.text != "" else { return }
         
-        AuthenticationService.instance.registerUser(email: email, password: password) { (sucess) in
-            if sucess {
-                AuthenticationService.instance.loginUser(email: email, password: password, completion: { (sucess) in
-                    if sucess {
+        let user = User(user: nil, email: email, token: nil, password: password)
+        
+        AuthenticationService.instance.registerUser(user: user) { (registerSuccess) in
+            if registerSuccess {
+                AuthenticationService.instance.loginUser(user: user, completion: { (loginSuccess) in
+                    if loginSuccess {
                         print("Logged in user.", AuthenticationService.instance.authenticationToken)
                     }
                 })

@@ -10,6 +10,7 @@
 		27165BA91FDF205B00B64177 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27165BA81FDF205B00B64177 /* SWRevealViewController.m */; };
 		27165BAE1FDF240600B64177 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27165BAD1FDF240600B64177 /* ChatViewController.swift */; };
 		27165BB01FDF241000B64177 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27165BAF1FDF241000B64177 /* ChannelViewController.swift */; };
+		271FE23B1FE1854300A7A76B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271FE23A1FE1854300A7A76B /* User.swift */; };
 		2763CF741FDF093000CF271F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CF731FDF093000CF271F /* AppDelegate.swift */; };
 		2763CF791FDF093000CF271F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2763CF771FDF093000CF271F /* Main.storyboard */; };
 		2763CF7B1FDF093000CF271F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2763CF7A1FDF093000CF271F /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		27165BA81FDF205B00B64177 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		27165BAD1FDF240600B64177 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		27165BAF1FDF241000B64177 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		271FE23A1FE1854300A7A76B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2763CF701FDF093000CF271F /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2763CF731FDF093000CF271F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2763CF781FDF093000CF271F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		27165BAA1FDF23D700B64177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				271FE23A1FE1854300A7A76B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				279C80EA1FE09DBE001D68AA /* LoginViewController.swift in Sources */,
+				271FE23B1FE1854300A7A76B /* User.swift in Sources */,
 				2763CF741FDF093000CF271F /* AppDelegate.swift in Sources */,
 				27165BAE1FDF240600B64177 /* ChatViewController.swift in Sources */,
 				279120B71FE022DF00B45E5D /* GradientView.swift in Sources */,

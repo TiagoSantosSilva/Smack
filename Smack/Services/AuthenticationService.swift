@@ -12,6 +12,14 @@ import Alamofire
 class AuthenticationService {
     
     static let instance = AuthenticationService()
+    let jsonDecoder : JSONDecoder
+    let jsonEncoder : JSONEncoder
+    
+    init() {
+        jsonDecoder = JSONDecoder()
+        jsonEncoder = JSONEncoder()
+        jsonEncoder.outputFormatting = .prettyPrinted
+    }
     
     let defaults = UserDefaults.standard
     
@@ -45,16 +53,14 @@ class AuthenticationService {
         }
     }
     
-    func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
+    func registerUser(user: User, completion: @escaping CompletionHandler) {
         
-        let lowerCaseEmail = email.lowercased()
+        let userAsJson = try! jsonEncoder.encode(user)
+        let userJsonAsDictionary = try? JSONSerialization.jsonObject(with: userAsJson, options: []) as? [String: Any]
         
-        let body: [String: Any] = [
-            "email": lowerCaseEmail,
-            "password": password
-        ]
+        guard let userAsDictionaryUnwrapped = userJsonAsDictionary else { return }
         
-        Alamofire.request(Register_Url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: Request_Header).responseString { (response) in
+        Alamofire.request(Register_Url, method: .post, parameters: userAsDictionaryUnwrapped, encoding: JSONEncoding.default, headers: Request_Header).responseString { (response) in
             
             if response.result.error == nil {
                 completion(true)
@@ -66,28 +72,31 @@ class AuthenticationService {
         }
     }
     
-    func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
+    func loginUser(user: User, completion: @escaping CompletionHandler) {
         
-        let lowerCaseEmail = email.lowercased()
+        let userAsJson = try! jsonEncoder.encode(user)
+        let userJsonAsDictionary = try? JSONSerialization.jsonObject(with: userAsJson, options: []) as? [String: Any]
+        guard let userAsDictionaryUnwrapped = userJsonAsDictionary else { return }
         
-        let body: [String: Any] = [
-            "email": lowerCaseEmail,
-            "password": password
-        ]
-        
-        Alamofire.request(Login_Url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: Request_Header).responseJSON(completionHandler: { (response) in
+        Alamofire.request(Login_Url, method: .post, parameters: userAsDictionaryUnwrapped, encoding: JSONEncoding.default, headers: Request_Header).responseJSON(completionHandler: { (response) in
             
             if response.result.error == nil {
-                guard let json = response.result.value as? Dictionary<String, Any> else {
-                    debugPrint("Json dictionary let failed.")
-                    return
+                
+                guard let dict = response.result.value as? [String: Any] else { return }
+                guard let json = try? JSONSerialization.data(withJSONObject: dict, options: []) else { return }
+                
+                do {
+                    let userFromDecode = try self.jsonDecoder.decode(User.self, from: json)
+                    guard let userEmail = userFromDecode.user else { return }
+                    guard let authenticationToken = userFromDecode.token else { return }
+                    
+                    self.userEmail = userEmail
+                    self.authenticationToken = authenticationToken
+                    
+                    print("Created user 🌞: \n \(user)")
+                } catch let jsonError {
+                    print("Error serializing json: ", jsonError)
                 }
-                
-                guard let email = json["user"] as? String else { return }
-                guard let token = json["token"] as? String else { return }
-                
-                self.userEmail = email
-                self.authenticationToken = token
                 
                 completion(true)
             } else {
