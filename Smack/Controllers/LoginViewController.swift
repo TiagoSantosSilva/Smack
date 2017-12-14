@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var closeButton: UIButton!
     
     override func viewDidLoad() {
