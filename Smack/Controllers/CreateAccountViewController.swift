@@ -34,13 +34,17 @@ class CreateAccountViewController: UIViewController {
         guard let username = userNameTxt.text, userNameTxt.text != "" else { return }
         guard let password = passwordTxt.text, passwordTxt.text != "" else { return }
         
-        let user = User(user: nil, email: email, token: nil, password: password)
+        let user = User( _id: nil, user: email, email: email, token: nil, password: password, avatarName: "profileDefault", avatarColor: "[0.5, 0.5, 0.5, 1]", name: username)
         
         AuthenticationService.instance.registerUser(user: user) { (registerSuccess) in
             if registerSuccess {
                 AuthenticationService.instance.loginUser(user: user, completion: { (loginSuccess) in
                     if loginSuccess {
                         print("Logged in user.", AuthenticationService.instance.authenticationToken)
+                        AuthenticationService.instance.createUser(user: user, completion: { (createUserSuccess) in
+                            print("Created user.")
+                            self.performSegue(withIdentifier: Unwind_To_Channel, sender: nil)
+                        })
                     }
                 })
             }
