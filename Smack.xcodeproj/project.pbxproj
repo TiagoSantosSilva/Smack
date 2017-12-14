@@ -22,6 +22,7 @@
 		279C80ED1FE0A6C5001D68AA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80EC1FE0A6C5001D68AA /* UIViewControllerExtension.swift */; };
 		279C80EF1FE0AA25001D68AA /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */; };
 		27D08CF41FE31E1100C5B105 /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */; };
+		27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */; };
 		27E24DE21FE15161002DAE3F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E24DE11FE15161002DAE3F /* AuthenticationService.swift */; };
 		27E24DE41FE177CC002DAE3F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E24DE31FE177CC002DAE3F /* RoundedButton.swift */; };
 		51E10237471C328C02DF07E9 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9294CC85F9570E04AD536A /* Pods_Smack.framework */; };
@@ -62,6 +63,7 @@
 		279C80EC1FE0A6C5001D68AA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
+		27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
 		27E24DE11FE15161002DAE3F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		27E24DE31FE177CC002DAE3F /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4828DD11E42018B8236CBD94 /* Pods_SmackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 			children = (
 				279120B61FE022DF00B45E5D /* GradientView.swift */,
 				27E24DE31FE177CC002DAE3F /* RoundedButton.swift */,
+				27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				2763CF741FDF093000CF271F /* AppDelegate.swift in Sources */,
 				27165BAE1FDF240600B64177 /* ChatViewController.swift in Sources */,
 				279120B71FE022DF00B45E5D /* GradientView.swift in Sources */,
+				27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */,
 				279C80ED1FE0A6C5001D68AA /* UIViewControllerExtension.swift in Sources */,
 				27165BB01FDF241000B64177 /* ChannelViewController.swift in Sources */,
 				27E24DE41FE177CC002DAE3F /* RoundedButton.swift in Sources */,
