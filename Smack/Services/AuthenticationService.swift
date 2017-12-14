@@ -55,12 +55,9 @@ class AuthenticationService {
     
     func registerUser(user: User, completion: @escaping CompletionHandler) {
         
-        let userAsJson = try! jsonEncoder.encode(user)
-        let userJsonAsDictionary = try? JSONSerialization.jsonObject(with: userAsJson, options: []) as? [String: Any]
+        let userContent = convertUserToStringDictionary(user: user)
         
-        guard let userAsDictionaryUnwrapped = userJsonAsDictionary else { return }
-        
-        Alamofire.request(Register_Url, method: .post, parameters: userAsDictionaryUnwrapped, encoding: JSONEncoding.default, headers: Request_Header).responseString { (response) in
+        Alamofire.request(Register_Url, method: .post, parameters: userContent, encoding: JSONEncoding.default, headers: Request_Header).responseString { (response) in
             
             if response.result.error == nil {
                 completion(true)
@@ -74,29 +71,21 @@ class AuthenticationService {
     
     func loginUser(user: User, completion: @escaping CompletionHandler) {
         
-        let userAsJson = try! jsonEncoder.encode(user)
-        let userJsonAsDictionary = try? JSONSerialization.jsonObject(with: userAsJson, options: []) as? [String: Any]
-        guard let userAsDictionaryUnwrapped = userJsonAsDictionary else { return }
+        let userContent = convertUserToStringDictionary(user: user)
         
-        Alamofire.request(Login_Url, method: .post, parameters: userAsDictionaryUnwrapped, encoding: JSONEncoding.default, headers: Request_Header).responseJSON(completionHandler: { (response) in
+        Alamofire.request(Login_Url, method: .post, parameters: userContent, encoding: JSONEncoding.default, headers: Request_Header).responseJSON(completionHandler: { (response) in
             
             if response.result.error == nil {
                 
-                guard let dict = response.result.value as? [String: Any] else { return }
-                guard let json = try? JSONSerialization.data(withJSONObject: dict, options: []) else { return }
+                let userFromResponse = self.convertStringDictionaryToUser(content: response.result.value)
                 
-                do {
-                    let userFromDecode = try self.jsonDecoder.decode(User.self, from: json)
-                    guard let userEmail = userFromDecode.user else { return }
-                    guard let authenticationToken = userFromDecode.token else { return }
-                    
-                    self.userEmail = userEmail
-                    self.authenticationToken = authenticationToken
-                    
-                    print("Created user 🌞: \n \(user)")
-                } catch let jsonError {
-                    print("Error serializing json: ", jsonError)
-                }
+                guard let userEmail = userFromResponse.user else { return }
+                guard let authenticationToken = userFromResponse.token else { return }
+                
+                self.userEmail = userEmail
+                self.authenticationToken = authenticationToken
+                
+                print("Created user 🌞: \n \(user)")
                 
                 completion(true)
             } else {
@@ -104,5 +93,30 @@ class AuthenticationService {
                 debugPrint(response.result.error as Any)
             }
         })
+    }
+    
+    func convertUserToStringDictionary(user: User) -> [String: Any] {
+        
+        let userAsJson = try! jsonEncoder.encode(user)
+        let userJsonAsDictionary = try? JSONSerialization.jsonObject(with: userAsJson, options: []) as? [String: Any]
+        
+        guard let userAsDictionaryUnwrapped = userJsonAsDictionary! else { return [String: Any]() }
+        return userAsDictionaryUnwrapped
+    }
+    
+    func convertStringDictionaryToUser(content: Any?) -> User {
+        
+        let userGuardReturn = User(user: nil, email: nil, token: nil, password: nil)
+        
+        guard let dict = content as? [String: Any] else { return userGuardReturn }
+        guard let json = try? JSONSerialization.data(withJSONObject: dict, options: []) else { return userGuardReturn}
+        
+        do {
+            let userFromDecode = try self.jsonDecoder.decode(User.self, from: json)
+            return userFromDecode
+        } catch let jsonError {
+            print("Error serializing json: ", jsonError)
+        }
+        return userGuardReturn
     }
 }
