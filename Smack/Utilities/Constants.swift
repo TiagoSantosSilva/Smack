@@ -12,6 +12,7 @@ import Foundation
 
 let To_Login = "toLogin"
 let To_Create_Account = "toCreateAccount"
+let To_Avatar_Picker = "toAvatarPicker"
 let Unwind_To_Channel = "unwindToChannel"
 
 // User Defaults
@@ -33,6 +34,7 @@ let Login_Url = "\(Base_Url)account/login"
 let AddUser_Url = "\(Base_Url)user/add"
 
 // Headers
+
 
 let Request_Header = [
 "Content-Type": "application/json; charset=utf-8"

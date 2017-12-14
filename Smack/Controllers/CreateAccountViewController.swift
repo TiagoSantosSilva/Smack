@@ -55,5 +55,6 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func chooseAvatarPressed(_ sender: Any) {
+        performSegue(withIdentifier: To_Avatar_Picker, sender: nil)
     }
 }
