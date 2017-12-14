@@ -19,10 +19,18 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var generateBackgroundButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
     
+    var avatarName = "profileDefault"
+    var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDataService.instance.avatarName != "" {
+            userImage.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+        }
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
@@ -34,7 +42,7 @@ class CreateAccountViewController: UIViewController {
         guard let username = userNameTxt.text, userNameTxt.text != "" else { return }
         guard let password = passwordTxt.text, passwordTxt.text != "" else { return }
         
-        let user = User( _id: nil, user: email, email: email, token: nil, password: password, avatarName: "profileDefault", avatarColor: "[0.5, 0.5, 0.5, 1]", name: username)
+        let user = User( _id: nil, user: email, email: email, token: nil, password: password, avatarName: avatarName, avatarColor: avatarColor, name: username)
         
         AuthenticationService.instance.registerUser(user: user) { (registerSuccess) in
             if registerSuccess {

@@ -22,4 +22,15 @@ class AvatarCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
     }
+    
+    func configureCell(index: Int, avatarType: AvatarType){
+        switch avatarType{
+        case .light:
+            cellImage.image = UIImage(named: "light\(index)")
+            self.layer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        case .dark:
+            cellImage.image = UIImage(named: "dark\(index)")
+            self.layer.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }
+    }
 }
