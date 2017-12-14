@@ -21,15 +21,21 @@ class CreateAccountViewController: UIViewController {
     
     var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    var backgroundColor: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if UserDataService.instance.avatarName != "" {
             userImage.image = UIImage(named: UserDataService.instance.avatarName)
             avatarName = UserDataService.instance.avatarName
+            
+            if avatarName.contains("light") && backgroundColor == nil {
+                backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            }
         }
     }
     
@@ -60,9 +66,24 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func generateBackgroundPressed(_ sender: Any) {
+        let red = CGFloat(arc4random_uniform(255)) / 255
+        let green = CGFloat(arc4random_uniform(255)) / 255
+        let blue = CGFloat(arc4random_uniform(255)) / 255
+        
+        backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.userImage.backgroundColor = self.backgroundColor
+        }
     }
     
     @IBAction func chooseAvatarPressed(_ sender: Any) {
         self.performSegue(withIdentifier: To_Avatar_Picker, sender: nil)
+    }
+    
+    func setupView() {
+        userNameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
+        emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
+        passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
     }
 }

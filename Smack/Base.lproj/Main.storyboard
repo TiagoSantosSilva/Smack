@@ -123,7 +123,7 @@
                                 </constraints>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1QJ-Um-wkT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1QJ-Um-wkT" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="22" y="565" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="UkE-It-RsP"/>
@@ -473,7 +473,7 @@
                                     <action selector="generateBackgroundPressed:" destination="JQS-PC-mRO" eventType="touchUpInside" id="Jzf-Ji-AsW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="v41-IF-Gyr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="v41-IF-Gyr" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="138" y="308" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2kc-XY-IZz"/>
