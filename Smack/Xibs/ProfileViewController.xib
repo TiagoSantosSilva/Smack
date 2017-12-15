@@ -1,13 +1,30 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Smack" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="byX-jO-JN9" id="TFc-hg-jz2"/>
+                <outlet property="logoutButtonTapped" destination="KQF-K5-Weh" id="tBz-U5-uM8"/>
+                <outlet property="profileImage" destination="fw3-WP-AtZ" id="jxV-E3-JlR"/>
+                <outlet property="userEmail" destination="DO2-64-DyV" id="w5o-1Y-zTJ"/>
+                <outlet property="userName" destination="QHi-PE-tkW" id="Ytr-iy-5fe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +32,101 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byX-jO-JN9" userLabel="Background View">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30001605308219181" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7R-hQ-soc" userLabel="Front View">
+                    <rect key="frame" x="16" y="145" width="343" height="346"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0N-Sv-jze" userLabel="Close Button">
+                            <rect key="frame" x="299" y="16" width="28" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="28" id="9KG-Sh-EIV"/>
+                                <constraint firstAttribute="width" secondItem="g0N-Sv-jze" secondAttribute="height" multiplier="1:1" id="JZ9-7T-Jog"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="28" id="LBy-Hs-f1Y"/>
+                            </constraints>
+                            <state key="normal" image="closeButton"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="U86-uY-OHw"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhV-Oj-5DW">
+                            <rect key="frame" x="93.5" y="42" width="156.5" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="156.5" id="1Uk-Ha-LuD"/>
+                                <constraint firstAttribute="height" constant="36" id="9nd-wk-Khx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                            <color key="textColor" red="0.47843137250000001" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="fw3-WP-AtZ">
+                            <rect key="frame" x="116" y="96" width="110" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="110" id="16W-53-l9A"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="110" id="N6d-An-jIB"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiago Santos Silva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHi-PE-tkW">
+                            <rect key="frame" x="23" y="226" width="297" height="23.5"/>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                            <color key="textColor" red="0.47843137250000001" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tiagomssantossilva@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO2-64-DyV">
+                            <rect key="frame" x="23" y="257.5" width="297" height="23.5"/>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                            <color key="textColor" red="0.47843137250000001" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQF-K5-Weh" userLabel="Logout Button">
+                            <rect key="frame" x="138" y="298" width="67" height="40"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" red="0.47843137250000001" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="DO2-64-DyV" firstAttribute="centerX" secondItem="x7R-hQ-soc" secondAttribute="centerX" id="1JH-q8-WvZ"/>
+                        <constraint firstItem="g0N-Sv-jze" firstAttribute="top" secondItem="x7R-hQ-soc" secondAttribute="topMargin" constant="8" id="390-ZW-5UJ"/>
+                        <constraint firstItem="QHi-PE-tkW" firstAttribute="leading" secondItem="x7R-hQ-soc" secondAttribute="leadingMargin" constant="15" id="Acs-pl-42L"/>
+                        <constraint firstItem="fw3-WP-AtZ" firstAttribute="centerX" secondItem="x7R-hQ-soc" secondAttribute="centerX" id="BBr-uN-8XI"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="DO2-64-DyV" secondAttribute="trailing" constant="15" id="CZf-ia-Xfs"/>
+                        <constraint firstItem="vhV-Oj-5DW" firstAttribute="centerX" secondItem="x7R-hQ-soc" secondAttribute="centerX" id="DRi-E3-4FC"/>
+                        <constraint firstItem="fw3-WP-AtZ" firstAttribute="top" secondItem="vhV-Oj-5DW" secondAttribute="bottom" constant="18" id="EWu-rb-cSg"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="g0N-Sv-jze" secondAttribute="trailing" constant="8" id="MG4-Y8-fHp"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="KQF-K5-Weh" secondAttribute="bottom" id="MiQ-Xu-DxN"/>
+                        <constraint firstItem="QHi-PE-tkW" firstAttribute="centerX" secondItem="x7R-hQ-soc" secondAttribute="centerX" id="ScW-wW-L4y"/>
+                        <constraint firstItem="vhV-Oj-5DW" firstAttribute="top" secondItem="x7R-hQ-soc" secondAttribute="top" constant="42" id="W40-hM-BzS"/>
+                        <constraint firstItem="DO2-64-DyV" firstAttribute="leading" secondItem="x7R-hQ-soc" secondAttribute="leadingMargin" constant="15" id="XC7-4W-4Jh"/>
+                        <constraint firstItem="DO2-64-DyV" firstAttribute="top" secondItem="QHi-PE-tkW" secondAttribute="bottom" constant="8" id="aYH-bG-KtC"/>
+                        <constraint firstItem="KQF-K5-Weh" firstAttribute="centerX" secondItem="x7R-hQ-soc" secondAttribute="centerX" id="cZG-iA-CxM"/>
+                        <constraint firstItem="QHi-PE-tkW" firstAttribute="top" secondItem="fw3-WP-AtZ" secondAttribute="bottom" constant="20" id="efV-Fx-RE8"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="QHi-PE-tkW" secondAttribute="trailing" constant="15" id="xgR-ll-mP1"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="byX-jO-JN9" secondAttribute="bottom" id="7Ti-iW-TZK"/>
+                <constraint firstItem="byX-jO-JN9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="MH1-7M-XuQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="byX-jO-JN9" secondAttribute="trailing" id="Ngc-zd-EYO"/>
+                <constraint firstItem="x7R-hQ-soc" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="UmK-rz-ogx"/>
+                <constraint firstItem="byX-jO-JN9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dpD-w4-ndV"/>
+                <constraint firstItem="x7R-hQ-soc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="ihj-FI-btj"/>
+                <constraint firstItem="x7R-hQ-soc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="125" id="krV-Ad-ChK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="x7R-hQ-soc" secondAttribute="bottom" constant="176" id="lNF-wC-aaj"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="closeButton" width="28" height="28"/>
+        <image name="profileDefault" width="192" height="192"/>
+    </resources>
 </document>

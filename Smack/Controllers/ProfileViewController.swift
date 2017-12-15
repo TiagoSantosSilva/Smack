@@ -10,6 +10,11 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,4 +37,9 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    @IBAction func closeButtonTapped(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var logoutButtonTapped: UIButton!
+    
 }
