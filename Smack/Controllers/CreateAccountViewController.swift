@@ -67,6 +67,7 @@ class CreateAccountViewController: UIViewController {
                                 
                                 print("Created user.")
                                 self.performSegue(withIdentifier: Unwind_To_Channel, sender: nil)
+                                NotificationCenter.default.post(name: Notification_User_Data_Did_Change, object: nil)
                             }
                         })
                     }

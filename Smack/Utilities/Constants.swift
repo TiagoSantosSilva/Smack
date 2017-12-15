@@ -12,6 +12,10 @@ import Foundation
 
 let Smack_Purple_Place_Holder = #colorLiteral(red: 0.3254901961, green: 0.4196078431, blue: 0.7764705882, alpha: 0.5)
 
+// Notification constants
+
+let Notification_User_Data_Did_Change = Notification.Name("notificationUserDataChanged")
+
 // Segues
 
 let To_Login = "toLogin"
@@ -24,7 +28,6 @@ let Unwind_To_Channel = "unwindToChannel"
 let Token_Key = "token"
 let Logged_In_Key = "loggedIn"
 let User_Email = "userEmail"
-
 
 // Typealias is a way to rename a type. Ex: typealias Tiago = String ; let something: Tiago = "something"
 typealias CompletionHandler = (_ Success: Bool) -> ()
