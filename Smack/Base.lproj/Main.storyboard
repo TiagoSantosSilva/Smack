@@ -481,6 +481,10 @@
                                     <constraint firstAttribute="width" secondItem="v41-IF-Gyr" secondAttribute="height" multiplier="1:1" id="lxI-Wu-FGc"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="57P-Ck-jFG">
+                                <rect key="frame" x="169" y="225.5" width="37" height="37"/>
+                                <color key="color" red="0.47843137250000001" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -493,6 +497,7 @@
                             <constraint firstItem="oan-KV-84u" firstAttribute="top" secondItem="mjG-aV-CQB" secondAttribute="topMargin" constant="10" id="IE0-qj-amS"/>
                             <constraint firstItem="gJe-nX-5pa" firstAttribute="centerX" secondItem="mjG-aV-CQB" secondAttribute="centerX" id="IMW-mF-3fT"/>
                             <constraint firstItem="35L-kT-xme" firstAttribute="centerX" secondItem="mjG-aV-CQB" secondAttribute="centerX" id="Jgi-C5-kRn"/>
+                            <constraint firstItem="57P-Ck-jFG" firstAttribute="centerY" secondItem="mjG-aV-CQB" secondAttribute="centerY" constant="-90" id="L2V-3T-AVO"/>
                             <constraint firstItem="M7F-x6-KbE" firstAttribute="centerX" secondItem="mjG-aV-CQB" secondAttribute="centerX" id="L9P-qq-ayq"/>
                             <constraint firstItem="gJe-nX-5pa" firstAttribute="top" secondItem="8m1-39-Z1c" secondAttribute="bottom" constant="5" id="Q1H-FK-YYT"/>
                             <constraint firstItem="8m1-39-Z1c" firstAttribute="width" secondItem="v41-IF-Gyr" secondAttribute="width" id="fpG-WC-hwx"/>
@@ -500,6 +505,7 @@
                             <constraint firstItem="v41-IF-Gyr" firstAttribute="top" secondItem="35L-kT-xme" secondAttribute="bottom" constant="40" id="o4i-rl-S3r"/>
                             <constraint firstItem="8m1-39-Z1c" firstAttribute="centerX" secondItem="mjG-aV-CQB" secondAttribute="centerX" id="s9P-lL-LBL"/>
                             <constraint firstItem="9YA-EF-1AL" firstAttribute="centerX" secondItem="mjG-aV-CQB" secondAttribute="centerX" id="xZ4-CY-DKi"/>
+                            <constraint firstItem="57P-Ck-jFG" firstAttribute="centerX" secondItem="mjG-aV-CQB" secondAttribute="centerX" id="yN0-Bl-PVr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nex-23-5cB"/>
                     </view>
@@ -509,6 +515,7 @@
                         <outlet property="emailTxt" destination="JFw-RW-KOc" id="ZQ4-g6-XvV"/>
                         <outlet property="generateBackgroundButton" destination="gJe-nX-5pa" id="bvU-zS-vIL"/>
                         <outlet property="passwordTxt" destination="ECR-mY-FKG" id="C6Q-UI-yzw"/>
+                        <outlet property="spinner" destination="57P-Ck-jFG" id="UjR-ca-i5t"/>
                         <outlet property="userImage" destination="v41-IF-Gyr" id="9bU-tE-ogD"/>
                         <outlet property="userNameTxt" destination="fAc-5I-lpF" id="g0Z-Yy-b1h"/>
                         <segue destination="GM1-dP-p1R" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="W5z-X4-j5T"/>

@@ -9,7 +9,7 @@
 import UIKit
 
 class CreateAccountViewController: UIViewController {
-
+    
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
@@ -18,6 +18,8 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var chooseAvatarButton: UIButton!
     @IBOutlet weak var generateBackgroundButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
@@ -44,6 +46,9 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         guard let email = emailTxt.text, emailTxt.text != "" else { return }
         guard let username = userNameTxt.text, userNameTxt.text != "" else { return }
         guard let password = passwordTxt.text, passwordTxt.text != "" else { return }
@@ -56,8 +61,13 @@ class CreateAccountViewController: UIViewController {
                     if loginSuccess {
                         print("Logged in user.", AuthenticationService.instance.authenticationToken)
                         AuthenticationService.instance.createUser(user: user, completion: { (createUserSuccess) in
-                            print("Created user.")
-                            self.performSegue(withIdentifier: Unwind_To_Channel, sender: nil)
+                            if createUserSuccess {
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
+                                
+                                print("Created user.")
+                                self.performSegue(withIdentifier: Unwind_To_Channel, sender: nil)
+                            }
                         })
                     }
                 })
@@ -82,6 +92,9 @@ class CreateAccountViewController: UIViewController {
     }
     
     func setupView() {
+        
+        spinner.isHidden = true
+        
         userNameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
         emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
         passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
