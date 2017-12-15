@@ -21,7 +21,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Smack" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="byX-jO-JN9" id="TFc-hg-jz2"/>
-                <outlet property="logoutButtonTapped" destination="KQF-K5-Weh" id="tBz-U5-uM8"/>
                 <outlet property="profileImage" destination="fw3-WP-AtZ" id="jxV-E3-JlR"/>
                 <outlet property="userEmail" destination="DO2-64-DyV" id="w5o-1Y-zTJ"/>
                 <outlet property="userName" destination="QHi-PE-tkW" id="Ytr-iy-5fe"/>
@@ -62,7 +61,7 @@
                             <color key="textColor" red="0.47843137250000001" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="fw3-WP-AtZ">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="fw3-WP-AtZ" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                             <rect key="frame" x="116.33333333333334" y="96" width="110" height="110"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="110" id="16W-53-l9A"/>
@@ -87,6 +86,9 @@
                             <state key="normal" title="Logout">
                                 <color key="titleColor" red="0.47843137250000001" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="Sfi-0J-tSr"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
