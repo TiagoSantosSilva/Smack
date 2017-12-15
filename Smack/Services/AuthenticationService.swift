@@ -105,6 +105,8 @@ class AuthenticationService {
                 let userFromResponse = self.convertStringDictionaryToUser(content: response.result.value)
                 
                 print(userFromResponse)
+                UserDataService.instance.setUserData(id: userFromResponse._id!, color: userFromResponse.avatarColor!, avatarName: userFromResponse.avatarName!, email: userFromResponse.email!, name: userFromResponse.name!)
+                self.isLoggedIn = true
                 completion(true)
             } else {
                 completion(false)
