@@ -21,6 +21,8 @@
 		279C80EA1FE09DBE001D68AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80E91FE09DBE001D68AA /* LoginViewController.swift */; };
 		279C80ED1FE0A6C5001D68AA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80EC1FE0A6C5001D68AA /* UIViewControllerExtension.swift */; };
 		279C80EF1FE0AA25001D68AA /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */; };
+		27B555091FE463BD004A90F9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B555071FE463BD004A90F9 /* ProfileViewController.swift */; };
+		27B5550A1FE463BD004A90F9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B555081FE463BD004A90F9 /* ProfileViewController.xib */; };
 		27D08CF41FE31E1100C5B105 /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */; };
 		27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */; };
 		27D08CF91FE334D900C5B105 /* AvatarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF81FE334D900C5B105 /* AvatarType.swift */; };
@@ -65,6 +67,8 @@
 		279C80E91FE09DBE001D68AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		279C80EC1FE0A6C5001D68AA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		27B555071FE463BD004A90F9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		27B555081FE463BD004A90F9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
 		27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
 		27D08CF81FE334D900C5B105 /* AvatarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarType.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				279C80E91FE09DBE001D68AA /* LoginViewController.swift */,
 				279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */,
 				27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */,
+				27B555071FE463BD004A90F9 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 		2763CF721FDF093000CF271F /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				27B5550B1FE463F3004A90F9 /* Xibs */,
 				27D08CF71FE334CA00C5B105 /* Enums */,
 				27E24DE01FE1514E002DAE3F /* Services */,
 				279C80EB1FE0A67F001D68AA /* Extensions */,
@@ -202,6 +208,14 @@
 				279C80EC1FE0A6C5001D68AA /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27B5550B1FE463F3004A90F9 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				27B555081FE463BD004A90F9 /* ProfileViewController.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		27D08CF71FE334CA00C5B105 /* Enums */ = {
@@ -333,6 +347,7 @@
 			files = (
 				2763CF7E1FDF093000CF271F /* LaunchScreen.storyboard in Resources */,
 				2763CF7B1FDF093000CF271F /* Assets.xcassets in Resources */,
+				27B5550A1FE463BD004A90F9 /* ProfileViewController.xib in Resources */,
 				2763CF791FDF093000CF271F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +465,7 @@
 				27165BAE1FDF240600B64177 /* ChatViewController.swift in Sources */,
 				279120B71FE022DF00B45E5D /* GradientView.swift in Sources */,
 				27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */,
+				27B555091FE463BD004A90F9 /* ProfileViewController.swift in Sources */,
 				27D08CF91FE334D900C5B105 /* AvatarType.swift in Sources */,
 				279C80ED1FE0A6C5001D68AA /* UIViewControllerExtension.swift in Sources */,
 				27165BB01FDF241000B64177 /* ChannelViewController.swift in Sources */,
