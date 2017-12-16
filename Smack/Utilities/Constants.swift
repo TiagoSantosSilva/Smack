@@ -33,16 +33,16 @@ let User_Email = "userEmail"
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 
-// URL
+// URLs
 
 let Base_Url = "http://localhost:3005/v1/"
 let Register_Url = "\(Base_Url)account/register"
 let Login_Url = "\(Base_Url)account/login"
 let AddUser_Url = "\(Base_Url)user/add"
 let User_By_Email_Url = "\(Base_Url)/user/byEmail/"
+let Channels_Url = "\(Base_Url)/channel"
 
 // Headers
-
 
 let Request_Header = [
 "Content-Type": "application/json; charset=utf-8"
