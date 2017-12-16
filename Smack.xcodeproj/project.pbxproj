@@ -24,6 +24,7 @@
 		279C80EA1FE09DBE001D68AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80E91FE09DBE001D68AA /* LoginViewController.swift */; };
 		279C80ED1FE0A6C5001D68AA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80EC1FE0A6C5001D68AA /* UIViewControllerExtension.swift */; };
 		279C80EF1FE0AA25001D68AA /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */; };
+		27A6218D1FE5C53C0042AAF7 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6218C1FE5C53C0042AAF7 /* ChannelCell.swift */; };
 		27B555091FE463BD004A90F9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B555071FE463BD004A90F9 /* ProfileViewController.swift */; };
 		27B5550A1FE463BD004A90F9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B555081FE463BD004A90F9 /* ProfileViewController.xib */; };
 		27B5550D1FE47DDD004A90F9 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5550C1FE47DDD004A90F9 /* UserExtension.swift */; };
@@ -71,6 +72,7 @@
 		279C80E91FE09DBE001D68AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		279C80EC1FE0A6C5001D68AA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		27A6218C1FE5C53C0042AAF7 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		27B555071FE463BD004A90F9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		27B555081FE463BD004A90F9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		27B5550C1FE47DDD004A90F9 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
@@ -132,9 +134,9 @@
 		27165BAB1FDF23DC00B64177 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27A6218B1FE5C5170042AAF7 /* Cells */,
 				279120B61FE022DF00B45E5D /* GradientView.swift */,
 				27E24DE31FE177CC002DAE3F /* RoundedButton.swift */,
-				27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */,
 				27D08CFC1FE3439D00C5B105 /* CircleImage.swift */,
 			);
 			path = Views;
@@ -219,6 +221,15 @@
 				27B5550C1FE47DDD004A90F9 /* UserExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27A6218B1FE5C5170042AAF7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */,
+				27A6218C1FE5C53C0042AAF7 /* ChannelCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		27B5550B1FE463F3004A90F9 /* Xibs */ = {
@@ -485,6 +496,7 @@
 				27165BB01FDF241000B64177 /* ChannelViewController.swift in Sources */,
 				27E24DE41FE177CC002DAE3F /* RoundedButton.swift in Sources */,
 				276636021FE4D21B002AFB4E /* Channel.swift in Sources */,
+				27A6218D1FE5C53C0042AAF7 /* ChannelCell.swift in Sources */,
 				27D08CFB1FE33DDC00C5B105 /* UserDataService.swift in Sources */,
 				279C80EF1FE0AA25001D68AA /* CreateAccountViewController.swift in Sources */,
 				27B5550F1FE47E71004A90F9 /* DictionaryUtilities.swift in Sources */,

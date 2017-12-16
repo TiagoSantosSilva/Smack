@@ -8,16 +8,19 @@
 
 import UIKit
 
-class ChannelViewController: UIViewController {
+class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userImage: CircleImage!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) { }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+        tableView.delegate = self
+        tableView.dataSource = self
         createObserver()
     }
     
@@ -56,6 +59,29 @@ class ChannelViewController: UIViewController {
         } else {
             performSegue(withIdentifier: To_Login, sender: nil)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelCell else { return UITableViewCell() }
         
+        let channel = MessageService.instance.channels[indexPath.row]
+        cell.configureCell(channel: channel)
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.channels.count
     }
 }
+
+
+
+
+
+
+
+
