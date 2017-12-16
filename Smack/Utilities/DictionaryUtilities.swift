@@ -6,6 +6,7 @@
 //  Copyright © 2017 Tiago Santos. All rights reserved.
 //
 
+// TODO: Change the functions in this class into a generic one.
 import Foundation
 
 func convertStringDictionaryToUser(content: Any?, jsonDecoder: JSONDecoder) -> User {
@@ -22,4 +23,20 @@ func convertStringDictionaryToUser(content: Any?, jsonDecoder: JSONDecoder) -> U
         print("Error serializing json: ", jsonError)
     }
     return userGuardReturn
+}
+
+func convertStringDictionaryToChannelList(content: Any?, jsonDecoder: JSONDecoder) -> [Channel] {
+    
+    let channelGuardReturn = [Channel]()
+    
+    guard let dictionary = content as? [String: Any] else { return channelGuardReturn }
+    guard let json = try? JSONSerialization.data(withJSONObject: dictionary, options: []) else { return channelGuardReturn }
+    
+    do {
+        let channels = try jsonDecoder.decode([Channel].self, from: json)
+        return channels
+    } catch let jsonError {
+        print("Error serializing json: ", jsonError)
+    }
+    return channelGuardReturn
 }

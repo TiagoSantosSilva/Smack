@@ -7,10 +7,35 @@
 //
 
 import Foundation
+import Alamofire
 
 class MessageService {
     
+    var jsonDecoder: JSONDecoder
+    
+    init() {
+        jsonDecoder = JSONDecoder()
+    }
+    
     static let instance = MessageService()
     
-    var channels =  [Channel]()
+    var channels = [Channel]()
+    
+    func findAllChannels(completion: @escaping CompletionHandler) {
+        Alamofire.request(Channels_Url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Bearer_Header).responseJSON { (response) in
+            
+            if response.result.error != nil {
+                let channelsFromJson = convertStringDictionaryToChannelList(content: response, jsonDecoder: self.jsonDecoder)
+                
+                for channel in channelsFromJson {
+                    self.channels.append(channel)
+                }
+                
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
 }
