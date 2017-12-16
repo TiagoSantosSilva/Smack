@@ -85,10 +85,9 @@ class AuthenticationService {
                 self.userEmail = userEmail
                 self.authenticationToken = authenticationToken
                 
-                self.findUserByEmail(completion: { (result) in
-                    print("Created user 🌞: \n \(user)")
-                    completion(true)
-                })
+                print("Created user 🌞: \n \(user)")
+                self.isLoggedIn = true
+                completion(true)
             } else {
                 completion(false)
                 debugPrint(response.result.error as Any)

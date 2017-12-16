@@ -21,15 +21,25 @@ class ChannelViewController: UIViewController {
         createObserver()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        verifyUserStatus()
+    }
+    
     func createObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataDidChange(_:)), name: Notification_User_Data_Did_Change, object: nil)
     }
     
     @objc func userDataDidChange(_ notification: Notification){
+        verifyUserStatus()
+    }
+    
+    func verifyUserStatus() {
         if AuthenticationService.instance.isLoggedIn {
-            loginButton.setTitle(UserDataService.instance.name, for: .normal)
-            userImage.image = UIImage(named: UserDataService.instance.avatarName)
-            userImage.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+            AuthenticationService.instance.findUserByEmail(completion: { (success) in
+                self.loginButton.setTitle(UserDataService.instance.name, for: .normal)
+                self.userImage.image = UIImage(named: UserDataService.instance.avatarName)
+                self.userImage.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+            })
         } else {
             loginButton.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "profileDefault")
