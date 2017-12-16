@@ -36,6 +36,12 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         verifyUserStatus()
     }
     
+    @IBAction func addChannelTapped(_ sender: Any) {
+        let addChannelVC = AddChannelViewController()
+        addChannelVC.modalPresentationStyle = .custom
+        present(addChannelVC, animated: true, completion: nil)
+    }
+    
     func verifyUserStatus() {
         if AuthenticationService.instance.isLoggedIn {
             AuthenticationService.instance.findUserByEmail(completion: { (success) in

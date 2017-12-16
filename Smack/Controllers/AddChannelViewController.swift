@@ -5,14 +5,20 @@
 //  Created by Tiago Santos on 16/12/17.
 //  Copyright © 2017 Tiago Santos. All rights reserved.
 //
+//  TODO: addCloseWhenTappedGesture and closeWhenTapped functions are being repeated. Extract
+//  them to a different class.
 
 import UIKit
 
 class AddChannelViewController: UIViewController {
 
+    @IBOutlet weak var channelName: UITextField!
+    @IBOutlet weak var channelDescription: UITextField!
+    @IBOutlet weak var backgroundView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupView()
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +27,27 @@ class AddChannelViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func createChannelTapped(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil )
+    }
+    
+    
+    func setupView() {
+        addCloseWhenTappedGesture()
+        
+        channelName.attributedPlaceholder = NSAttributedString(string: "name", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
+        channelDescription.attributedPlaceholder = NSAttributedString(string: "description", attributes: [NSAttributedStringKey.foregroundColor: Smack_Purple_Place_Holder])
+    }
+    
+    func addCloseWhenTappedGesture() {
+        let closeTouch = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.closeWhenTapped(_:)))
+        backgroundView.addGestureRecognizer(closeTouch)
+    }
+    
+    @objc func closeWhenTapped(_ recognizer: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+    }
 }

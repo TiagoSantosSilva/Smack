@@ -19,6 +19,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddChannelViewController" customModule="Smack" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="mrl-zq-dju" id="GXN-kl-N7G"/>
+                <outlet property="channelDescription" destination="e9Q-4B-M5n" id="F1v-cb-eWB"/>
+                <outlet property="channelName" destination="rDm-Hg-uX4" id="aev-wd-R6u"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,6 +46,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="152-v7-ehI">
                             <rect key="frame" x="289" y="10" width="28" height="28"/>
                             <state key="normal" image="closeButton"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="I8t-vr-PC0"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-qK-nzd" customClass="RoundedButton" customModule="Smack" customModuleProvider="target">
                             <rect key="frame" x="42.666666666666657" y="256" width="249.99999999999997" height="36"/>
@@ -59,6 +65,9 @@
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="createChannelTapped:" destination="-1" eventType="touchUpInside" id="oTK-wu-2Tz"/>
+                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="zVJ-wL-fPi">
                             <rect key="frame" x="42.666666666666657" y="103" width="249.99999999999997" height="94"/>
