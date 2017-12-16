@@ -85,14 +85,22 @@ class AuthenticationService {
                 self.userEmail = userEmail
                 self.authenticationToken = authenticationToken
                 
-                print("Created user 🌞: \n \(user)")
-                
-                completion(true)
+                self.findUserByEmail(completion: { (result) in
+                    print("Created user 🌞: \n \(user)")
+                    completion(true)
+                })
             } else {
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
         })
+    }
+    
+    fileprivate func setUserInfo(_ response: (DataResponse<Any>)) {
+        let userFromResponse = convertStringDictionaryToUser(content: response.result.value, jsonDecoder: self.jsonDecoder)
+        
+        UserDataService.instance.setUserData(id: userFromResponse._id!, color: userFromResponse.avatarColor!, avatarName: userFromResponse.avatarName!, email: userFromResponse.email!, name: userFromResponse.name!)
+        self.isLoggedIn = true
     }
     
     func createUser(user: User, completion: @escaping CompletionHandler) {
@@ -102,11 +110,7 @@ class AuthenticationService {
         Alamofire.request(AddUser_Url, method: .post, parameters: userContent, encoding: JSONEncoding.default, headers: Bearer_Header).responseJSON { (response) in
             
             if response.result.error == nil {
-                let userFromResponse = convertStringDictionaryToUser(content: response.result.value, jsonDecoder: self.jsonDecoder)
-                
-                print(userFromResponse)
-                UserDataService.instance.setUserData(id: userFromResponse._id!, color: userFromResponse.avatarColor!, avatarName: userFromResponse.avatarName!, email: userFromResponse.email!, name: userFromResponse.name!)
-                self.isLoggedIn = true
+                self.setUserInfo(response)
                 completion(true)
             } else {
                 completion(false)
@@ -117,5 +121,38 @@ class AuthenticationService {
     
     func findUserByEmail(completion: @escaping CompletionHandler) {
         
+        Alamofire.request("\(User_By_Email_Url)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Bearer_Header).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                self.setUserInfo(response)
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
