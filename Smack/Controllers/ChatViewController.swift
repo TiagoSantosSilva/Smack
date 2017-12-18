@@ -11,8 +11,8 @@ import UIKit
 class ChatViewController: UIViewController {
     
     @IBOutlet weak var menuButton: UIButton!
-    
     @IBOutlet weak var channelNameLbl: UILabel!
+    @IBOutlet weak var messageTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,9 @@ class ChatViewController: UIViewController {
     func getMessages() {
         guard let channelId = MessageService.instance.selectedChannel?.id else { return }
         MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
-            
         }
+    }
+    
+    @IBAction func sendButtonTapped(_ sender: Any) {
     }
 }
