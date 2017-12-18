@@ -14,14 +14,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var channelNameLbl: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendMessageButton: UIButton!
+    
+    var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
+        sendMessageButton.isHidden = true
         setupView()
     }
     
@@ -69,6 +72,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             onLoginGetMessages()
         } else {
             channelNameLbl.text = "Please Log In"
+            tableView.reloadData()
         }
     }
     
@@ -128,4 +132,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    @IBAction func messageTextFieldEditing(_ sender: Any) {
+        if messageTextField.text == "" {
+            isTyping = false
+            sendMessageButton.isHidden = true
+        } else {
+            if isTyping == false {
+                sendMessageButton.isHidden = false
+            }
+            isTyping = true
+        }
+    }
+    
 }
