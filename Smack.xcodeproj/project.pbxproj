@@ -33,6 +33,7 @@
 		27B5550D1FE47DDD004A90F9 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5550C1FE47DDD004A90F9 /* UserExtension.swift */; };
 		27B5550F1FE47E71004A90F9 /* DictionaryUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5550E1FE47E71004A90F9 /* DictionaryUtilities.swift */; };
 		27C88B571FE8016F0007CA0B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C88B561FE8016F0007CA0B /* Message.swift */; };
+		27C88B591FE815C90007CA0B /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C88B581FE815C90007CA0B /* KeyboardBoundView.swift */; };
 		27D08CF41FE31E1100C5B105 /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */; };
 		27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */; };
 		27D08CF91FE334D900C5B105 /* AvatarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF81FE334D900C5B105 /* AvatarType.swift */; };
@@ -85,6 +86,7 @@
 		27B5550C1FE47DDD004A90F9 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
 		27B5550E1FE47E71004A90F9 /* DictionaryUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilities.swift; sourceTree = "<group>"; };
 		27C88B561FE8016F0007CA0B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		27C88B581FE815C90007CA0B /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
 		27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
 		27D08CF81FE334D900C5B105 /* AvatarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarType.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				279120B61FE022DF00B45E5D /* GradientView.swift */,
 				27E24DE31FE177CC002DAE3F /* RoundedButton.swift */,
 				27D08CFC1FE3439D00C5B105 /* CircleImage.swift */,
+				27C88B581FE815C90007CA0B /* KeyboardBoundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				2763CF741FDF093000CF271F /* AppDelegate.swift in Sources */,
 				27165BAE1FDF240600B64177 /* ChatViewController.swift in Sources */,
 				279120B71FE022DF00B45E5D /* GradientView.swift in Sources */,
+				27C88B591FE815C90007CA0B /* KeyboardBoundView.swift in Sources */,
 				27A621951FE5D7920042AAF7 /* SocketService.swift in Sources */,
 				27B5550D1FE47DDD004A90F9 /* UserExtension.swift in Sources */,
 				27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */,
