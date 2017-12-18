@@ -16,15 +16,32 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) { }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         tableView.delegate = self
         tableView.dataSource = self
         createObservers()
-        
+        listenToNewChannels()
+        listenToNewMessages()
+    }
+    
+    fileprivate func listenToNewChannels() {
         SocketService.instance.getChannel { (success) in
             self.tableView.reloadData()
+        }
+    }
+    
+    fileprivate func listenToNewMessages() {
+        SocketService.instance.getChatMessage { (newMessage) in
+            
+            guard let newMessageId = newMessage.id else { return }
+            
+            if (newMessageId != MessageService.instance.selectedChannel?.id) && AuthenticationService.instance.isLoggedIn {
+                MessageService.instance.unreadChannels.append(newMessageId)
+                self.tableView.reloadData()
+            }
         }
     }
     
