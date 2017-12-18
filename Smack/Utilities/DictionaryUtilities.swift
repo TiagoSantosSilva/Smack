@@ -40,3 +40,19 @@ func convertStringDictionaryToChannelList(content: Any?, jsonDecoder: JSONDecode
     }
     return channelGuardReturn
 }
+
+func convertStringDictionaryToMessageList(content: Any?, jsonDecoder: JSONDecoder) -> [Message] {
+    
+    let messageGuardReturn = [Message]()
+    
+    guard let dictionary = content as? [[String: Any]] else { return messageGuardReturn }
+    guard let json = try? JSONSerialization.data(withJSONObject: dictionary, options: []) else { return messageGuardReturn }
+    
+    do {
+        let messages = try jsonDecoder.decode([Message].self, from: json)
+        return messages
+    } catch let jsonError {
+        print("Error serializing json: ", jsonError)
+    }
+    return messageGuardReturn
+}

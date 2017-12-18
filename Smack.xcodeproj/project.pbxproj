@@ -32,6 +32,7 @@
 		27B5550A1FE463BD004A90F9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B555081FE463BD004A90F9 /* ProfileViewController.xib */; };
 		27B5550D1FE47DDD004A90F9 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5550C1FE47DDD004A90F9 /* UserExtension.swift */; };
 		27B5550F1FE47E71004A90F9 /* DictionaryUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5550E1FE47E71004A90F9 /* DictionaryUtilities.swift */; };
+		27C88B571FE8016F0007CA0B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C88B561FE8016F0007CA0B /* Message.swift */; };
 		27D08CF41FE31E1100C5B105 /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */; };
 		27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */; };
 		27D08CF91FE334D900C5B105 /* AvatarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D08CF81FE334D900C5B105 /* AvatarType.swift */; };
@@ -83,6 +84,7 @@
 		27B555081FE463BD004A90F9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		27B5550C1FE47DDD004A90F9 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
 		27B5550E1FE47E71004A90F9 /* DictionaryUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilities.swift; sourceTree = "<group>"; };
+		27C88B561FE8016F0007CA0B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
 		27D08CF51FE3240600C5B105 /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
 		27D08CF81FE334D900C5B105 /* AvatarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarType.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				271FE23A1FE1854300A7A76B /* User.swift */,
 				276636011FE4D21B002AFB4E /* Channel.swift */,
+				27C88B561FE8016F0007CA0B /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				27B5550D1FE47DDD004A90F9 /* UserExtension.swift in Sources */,
 				27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */,
 				276636001FE4D212002AFB4E /* MessageService.swift in Sources */,
+				27C88B571FE8016F0007CA0B /* Message.swift in Sources */,
 				27B555091FE463BD004A90F9 /* ProfileViewController.swift in Sources */,
 				27D08CF91FE334D900C5B105 /* AvatarType.swift in Sources */,
 				27A621901FE5CC250042AAF7 /* AddChannelViewController.swift in Sources */,

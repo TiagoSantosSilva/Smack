@@ -42,7 +42,8 @@ let Register_Url = "\(Base_Url)account/register"
 let Login_Url = "\(Base_Url)account/login"
 let AddUser_Url = "\(Base_Url)user/add"
 let User_By_Email_Url = "\(Base_Url)/user/byEmail/"
-let Channels_Url = "\(Base_Url)/channel"
+let Channels_Url = "\(Base_Url)channel"
+let Messages_Url = "\(Base_Url)message/byChannel/"
 
 // Headers
 
