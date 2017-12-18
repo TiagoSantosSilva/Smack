@@ -32,6 +32,7 @@ class ChatViewController: UIViewController {
     
     func createObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.userDataDidChange(_:)), name: Notification_User_Data_Did_Change, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.channelSelected(_:)), name: Notification_Channel_Selected, object: nil)
     }
     
     @objc func userDataDidChange(_ notification: Notification) {
@@ -40,6 +41,15 @@ class ChatViewController: UIViewController {
         } else {
             channelNameLbl.text = "Please Log In"
         }
+    }
+    
+    @objc func channelSelected(_ notification: Notification) {
+        updateWithChannel()
+    }
+    
+    func updateWithChannel() {
+        let channelName = MessageService.instance.selectedChannel?.name ?? ""
+        channelNameLbl.text = "#\(channelName)"
     }
     
     func onLoginGetMessages() {
