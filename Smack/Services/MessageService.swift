@@ -24,8 +24,8 @@ class MessageService {
     func findAllChannels(completion: @escaping CompletionHandler) {
         Alamofire.request(Channels_Url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Bearer_Header).responseJSON { (response) in
             
-            if response.result.error != nil {
-                let channelsFromJson = convertStringDictionaryToChannelList(content: response, jsonDecoder: self.jsonDecoder)
+            if response.result.error == nil {
+                let channelsFromJson = convertStringDictionaryToChannelList(content: response.result.value, jsonDecoder: self.jsonDecoder)
                 
                 for channel in channelsFromJson {
                     self.channels.append(channel)

@@ -29,7 +29,7 @@ func convertStringDictionaryToChannelList(content: Any?, jsonDecoder: JSONDecode
     
     let channelGuardReturn = [Channel]()
     
-    guard let dictionary = content as? [String: Any] else { return channelGuardReturn }
+    guard let dictionary = content as? [[String: Any]] else { return channelGuardReturn }
     guard let json = try? JSONSerialization.data(withJSONObject: dictionary, options: []) else { return channelGuardReturn }
     
     do {

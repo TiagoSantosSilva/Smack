@@ -22,6 +22,10 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         createObserver()
+        
+        SocketService.instance.getChannel { (success) in
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

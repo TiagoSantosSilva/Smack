@@ -26,7 +26,7 @@ class ChatViewController: UIViewController {
         }
         
         MessageService.instance.findAllChannels { (success) in
-            return
+            print("wut")
         }
     }
 }

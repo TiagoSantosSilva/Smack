@@ -27,6 +27,7 @@
 		27A6218D1FE5C53C0042AAF7 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6218C1FE5C53C0042AAF7 /* ChannelCell.swift */; };
 		27A621901FE5CC250042AAF7 /* AddChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6218E1FE5CC250042AAF7 /* AddChannelViewController.swift */; };
 		27A621911FE5CC250042AAF7 /* AddChannelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A6218F1FE5CC250042AAF7 /* AddChannelViewController.xib */; };
+		27A621951FE5D7920042AAF7 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A621941FE5D7920042AAF7 /* SocketService.swift */; };
 		27B555091FE463BD004A90F9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B555071FE463BD004A90F9 /* ProfileViewController.swift */; };
 		27B5550A1FE463BD004A90F9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B555081FE463BD004A90F9 /* ProfileViewController.xib */; };
 		27B5550D1FE47DDD004A90F9 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5550C1FE47DDD004A90F9 /* UserExtension.swift */; };
@@ -77,6 +78,7 @@
 		27A6218C1FE5C53C0042AAF7 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		27A6218E1FE5CC250042AAF7 /* AddChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelViewController.swift; sourceTree = "<group>"; };
 		27A6218F1FE5CC250042AAF7 /* AddChannelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelViewController.xib; sourceTree = "<group>"; };
+		27A621941FE5D7920042AAF7 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		27B555071FE463BD004A90F9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		27B555081FE463BD004A90F9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		27B5550C1FE47DDD004A90F9 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
@@ -149,13 +151,13 @@
 		27165BAC1FDF23E100B64177 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				27A6218E1FE5CC250042AAF7 /* AddChannelViewController.swift */,
+				27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */,
 				27165BAD1FDF240600B64177 /* ChatViewController.swift */,
 				27165BAF1FDF241000B64177 /* ChannelViewController.swift */,
-				279C80E91FE09DBE001D68AA /* LoginViewController.swift */,
 				279C80EE1FE0AA25001D68AA /* CreateAccountViewController.swift */,
-				27D08CF31FE31E1100C5B105 /* AvatarPickerViewController.swift */,
+				279C80E91FE09DBE001D68AA /* LoginViewController.swift */,
 				27B555071FE463BD004A90F9 /* ProfileViewController.swift */,
-				27A6218E1FE5CC250042AAF7 /* AddChannelViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,6 +262,7 @@
 				27E24DE11FE15161002DAE3F /* AuthenticationService.swift */,
 				27D08CFA1FE33DDC00C5B105 /* UserDataService.swift */,
 				276635FF1FE4D212002AFB4E /* MessageService.swift */,
+				27A621941FE5D7920042AAF7 /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				2763CF741FDF093000CF271F /* AppDelegate.swift in Sources */,
 				27165BAE1FDF240600B64177 /* ChatViewController.swift in Sources */,
 				279120B71FE022DF00B45E5D /* GradientView.swift in Sources */,
+				27A621951FE5D7920042AAF7 /* SocketService.swift in Sources */,
 				27B5550D1FE47DDD004A90F9 /* UserExtension.swift in Sources */,
 				27D08CF61FE3240600C5B105 /* AvatarCollectionViewCell.swift in Sources */,
 				276636001FE4D212002AFB4E /* MessageService.swift in Sources */,
