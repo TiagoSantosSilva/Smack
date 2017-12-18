@@ -47,6 +47,7 @@ class MessageService {
             if response.result.error == nil {
                 let messagesFromJson = convertStringDictionaryToMessageList(content: response.result.value, jsonDecoder: self.jsonDecoder)
                 
+                self.clearMessages()
                 for message in messagesFromJson {
                     self.messages.append(message)
                 }

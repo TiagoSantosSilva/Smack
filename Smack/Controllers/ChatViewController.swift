@@ -30,7 +30,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setupView() {
         view.bindToKeyboard()
-        createObserver()
+        createObservers()
         configureGestures()
         
         if AuthenticationService.instance.isLoggedIn {
@@ -62,7 +62,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.endEditing(true)
     }
     
-    func createObserver() {
+    func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.userDataDidChange(_:)), name: Notification_User_Data_Did_Change, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.channelSelected(_:)), name: Notification_Channel_Selected, object: nil)
     }
