@@ -58,12 +58,16 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     fileprivate func listenForMessageInsertedInChat() {
-        SocketService.instance.getChatMessage { (success) in
-            self.tableView.reloadData()
+        SocketService.instance.getChatMessage { (message) in
             
-            if MessageService.instance.messages.count > 0 {
-                let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
-                self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+            if message.channelId == MessageService.instance.selectedChannel?.id && AuthenticationService.instance.isLoggedIn {
+                MessageService.instance.messages.append(message)
+                self.tableView.reloadData()
+                
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
             }
         }
     }
