@@ -65,14 +65,6 @@ class SocketService: NSObject {
             let message = Message(id: id, messageBody: messageBody, userId: userId, channelId: channelId, userName: userName, userAvatar: userAvatar, userAvatarColor: userAvatarColor, version: 0, timeStamp: timeStamp)
             
             completion(message)
-            
-//            if channelId == MessageService.instance.selectedChannel?.id && AuthenticationService.instance.isLoggedIn {
-//
-//                MessageService.instance.messages.append(message)
-//                completion(true)
-//            } else {
-//                completion(false)
-//            }
         }
     }
     
