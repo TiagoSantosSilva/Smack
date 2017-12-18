@@ -41,9 +41,11 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func addChannelTapped(_ sender: Any) {
-        let addChannelVC = AddChannelViewController()
-        addChannelVC.modalPresentationStyle = .custom
-        present(addChannelVC, animated: true, completion: nil)
+        if AuthenticationService.instance.isLoggedIn {
+            let addChannelVC = AddChannelViewController()
+            addChannelVC.modalPresentationStyle = .custom
+            present(addChannelVC, animated: true, completion: nil)
+        }
     }
     
     func verifyUserStatus() {
