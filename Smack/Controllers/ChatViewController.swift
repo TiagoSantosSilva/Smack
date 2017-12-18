@@ -35,6 +35,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 NotificationCenter.default.post(name: Notification_User_Data_Did_Change, object: nil)
             })
         }
+        
+        SocketService.instance.getChatMessage { (success) in
+            self.tableView.reloadData()
+            
+            if MessageService.instance.messages.count > 0 {
+                let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+            }
+        }
     }
     
     func configureGestures() {
