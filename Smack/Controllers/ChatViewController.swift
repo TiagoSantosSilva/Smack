@@ -15,6 +15,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendMessageButton: UIButton!
+    @IBOutlet weak var userTypingLbl: UILabel!
     
     var isTyping = false
     
@@ -29,6 +30,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setupView() {
+        userTypingLbl.text = ""
         view.bindToKeyboard()
         createObservers()
         configureGestures()
@@ -39,6 +41,23 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             })
         }
         
+        listenForMessageInsertedInChat()
+        listenToTypingUsers()
+    }
+    
+    fileprivate func updateTypingUsersLabelVerbose(_ numberOfTypers: Int, _ names: String) {
+        if numberOfTypers > 0 && AuthenticationService.instance.isLoggedIn == true {
+            var verb = "is"
+            if numberOfTypers > 1 {
+                verb = "are"
+            }
+            self.userTypingLbl.text = "\(names) \(verb) typing a message"
+        } else {
+            self.userTypingLbl.text = ""
+        }
+    }
+    
+    fileprivate func listenForMessageInsertedInChat() {
         SocketService.instance.getChatMessage { (success) in
             self.tableView.reloadData()
             
@@ -46,6 +65,30 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
                 self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
             }
+        }
+    }
+    
+    fileprivate func addUsersToTypingUsersLabel(_ typingUsers: ([String : String]), _ channelId: String, _ names: inout String, _ numberOfTypers: inout Int) {
+        for (typingUser, channel) in typingUsers {
+            if typingUser != UserDataService.instance.name && channel == channelId {
+                if names == "" {
+                    names = typingUser
+                } else {
+                    names = "\(names), \(typingUser)"
+                }
+                numberOfTypers += 1
+            }
+        }
+    }
+    
+    func listenToTypingUsers() {
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            var names = ""
+            var numberOfTypers = 0
+            
+            self.addUsersToTypingUsersLabel(typingUsers, channelId, &names, &numberOfTypers)
+            self.updateTypingUsersLabelVerbose(numberOfTypers, names)
         }
     }
     
@@ -134,12 +177,16 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func messageTextFieldEditing(_ sender: Any) {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        
         if messageTextField.text == "" {
             isTyping = false
             sendMessageButton.isHidden = true
+            SocketService.instance.socket.emit("stopType", channelId)
         } else {
             if isTyping == false {
                 sendMessageButton.isHidden = false
+                SocketService.instance.socket.emit("startType", channelId)
             }
             isTyping = true
         }
