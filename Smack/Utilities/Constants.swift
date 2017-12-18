@@ -15,6 +15,7 @@ let Smack_Purple_Place_Holder = #colorLiteral(red: 0.3254901961, green: 0.419607
 // Notification constants
 
 let Notification_User_Data_Did_Change = Notification.Name("notificationUserDataChanged")
+let Notification_Channels_Loaded = Notification.Name("channelsLoaded")
 
 // Segues
 

@@ -21,7 +21,7 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         tableView.delegate = self
         tableView.dataSource = self
-        createObserver()
+        createObservers()
         
         SocketService.instance.getChannel { (success) in
             self.tableView.reloadData()
@@ -32,12 +32,17 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         verifyUserStatus()
     }
     
-    func createObserver() {
+    func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataDidChange(_:)), name: Notification_User_Data_Did_Change, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.channelDataDidChange(_:)), name: Notification_Channels_Loaded, object: nil)
     }
     
-    @objc func userDataDidChange(_ notification: Notification){
+    @objc func userDataDidChange(_ notification: Notification) {
         verifyUserStatus()
+    }
+    
+    @objc func channelDataDidChange(_ notification: Notification) {
+        tableView.reloadData()
     }
     
     @IBAction func addChannelTapped(_ sender: Any) {

@@ -32,6 +32,7 @@ class MessageService {
                     self.channels.append(channel)
                 }
                 
+                NotificationCenter.default.post(name: Notification_Channels_Loaded, object: nil)
                 completion(true)
             } else {
                 completion(false)
