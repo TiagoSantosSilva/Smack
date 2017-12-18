@@ -59,11 +59,11 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
             loginButton.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "profileDefault")
             userImage.backgroundColor = UIColor.clear
+            tableView.reloadData()
         }
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        
         if AuthenticationService.instance.isLoggedIn {
             let profileViewController = ProfileViewController()
             profileViewController.modalPresentationStyle = .custom
