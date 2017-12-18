@@ -16,6 +16,9 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.bindToKeyboard()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.handleTap))
+        view.addGestureRecognizer(tap)
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -28,6 +31,10 @@ class ChatViewController: UIViewController {
                 NotificationCenter.default.post(name: Notification_User_Data_Did_Change, object: nil)
             })
         }
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     func createObserver() {
@@ -73,5 +80,14 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
+        if AuthenticationService.instance.isLoggedIn {
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            guard let message = messageTextField.text else { return }
+            
+            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId, completion: { (success) in
+                self.messageTextField.text = ""
+                self.messageTextField.resignFirstResponder()
+            })
+        }
     }
 }
