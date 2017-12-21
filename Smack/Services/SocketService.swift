@@ -11,14 +11,13 @@ import SocketIO
 
 class SocketService: NSObject {
     
-    static let instance = SocketService()
+    var socket: SocketIOClient
     
     override init() {
+        self.socket = SocketIOClient(socketURL: URL(string: Base_Url)!)
         super.init()
+        estabilishConnection()
     }
-    
-    //var socket : SocketIOClient = SocketIOClient(socketURL: URL(string: Base_Url)!)
-    var socket: SocketIOClient = SocketIOClient(socketURL: URL(string: Base_Url)!)
     
     func estabilishConnection() {
         socket.connect()

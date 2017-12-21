@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smack/Controllers/ChatViewController.swift"
-            timestampString = "535329257.586902"
+            timestampString = "535572435.403563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "ChatViewController"
             landmarkType = "3">
          </BreakpointContent>

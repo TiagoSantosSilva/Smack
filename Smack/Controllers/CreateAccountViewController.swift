@@ -55,6 +55,10 @@ class CreateAccountViewController: UIViewController {
         
         let user = User( _id: nil, user: email, email: email, token: nil, password: password, avatarName: avatarName, avatarColor: avatarColor, name: username)
         
+        registerUser(user: user)
+    }
+    
+    fileprivate func registerUser(user: User) {
         AuthenticationService.instance.registerUser(user: user) { (registerSuccess) in
             if registerSuccess {
                 AuthenticationService.instance.loginUser(user: user, completion: { (loginSuccess) in
@@ -92,7 +96,7 @@ class CreateAccountViewController: UIViewController {
         self.performSegue(withIdentifier: To_Avatar_Picker, sender: nil)
     }
     
-    func setupView() {
+    fileprivate func setupView() {
         
         spinner.isHidden = true
         
@@ -108,3 +112,4 @@ class CreateAccountViewController: UIViewController {
         view.endEditing(true)
     }
 }
+

@@ -16,28 +16,30 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) { }
     
+    var socketService: SocketService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         tableView.delegate = self
         tableView.dataSource = self
+        socketService = SocketService()
         createObservers()
         listenToNewChannels()
         listenToNewMessages()
     }
     
     fileprivate func listenToNewChannels() {
-        SocketService.instance.getChannel { (success) in
+        socketService.getChannel { (success) in
             self.tableView.reloadData()
         }
     }
     
     fileprivate func listenToNewMessages() {
-        SocketService.instance.getChatMessage { (newMessage) in
-            
+        socketService.getChatMessage { (newMessage) in
+
             guard let newMessageId = newMessage.id else { return }
-            
+
             if (newMessageId != MessageService.instance.selectedChannel?.id) && AuthenticationService.instance.isLoggedIn {
                 MessageService.instance.unreadChannels.append(newMessageId)
                 self.tableView.reloadData()
@@ -49,7 +51,7 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         verifyUserStatus()
     }
     
-    func createObservers() {
+    fileprivate func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataDidChange(_:)), name: Notification_User_Data_Did_Change, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.channelDataDidChange(_:)), name: Notification_Channels_Loaded, object: nil)
     }

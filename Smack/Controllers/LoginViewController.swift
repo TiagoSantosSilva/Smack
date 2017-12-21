@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: To_Create_Account, sender: nil)
     }
     
-    func setupView() {
+    fileprivate func setupView() {
         userNameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor : Smack_Purple_Place_Holder])
         passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor : Smack_Purple_Place_Holder])
     }

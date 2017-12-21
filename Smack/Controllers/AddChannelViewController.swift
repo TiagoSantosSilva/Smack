@@ -16,8 +16,11 @@ class AddChannelViewController: UIViewController {
     @IBOutlet weak var channelDescription: UITextField!
     @IBOutlet weak var backgroundView: UIView!
     
+    var socketService: SocketService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        socketService = SocketService()
         setupView()
         // Do any additional setup after loading the view.
     }
@@ -31,7 +34,7 @@ class AddChannelViewController: UIViewController {
         guard let channelNameText = channelName.text, channelName.text != "" else { return }
         guard let channelDescriptionText = channelDescription.text, channelDescription.text != "" else { return }
         
-        SocketService.instance.addChannel(channelName: channelNameText, channelDescription: channelDescriptionText) { (success) in
+        socketService.addChannel(channelName: channelNameText, channelDescription: channelDescriptionText) { (success) in
             if success {
                 self.dismiss(animated: true, completion: nil)
             }

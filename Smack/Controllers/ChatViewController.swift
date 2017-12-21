@@ -18,6 +18,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var userTypingLbl: UILabel!
     
     var isTyping = false
+    var socketService: SocketService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,24 +26,29 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
+        socketService = SocketService()
         sendMessageButton.isHidden = true
         setupView()
     }
     
-    func setupView() {
+    fileprivate func setupView() {
         userTypingLbl.text = ""
         view.bindToKeyboard()
         createObservers()
         configureGestures()
         
+        findUserEmailWhenLoggedIn()
+        
+        listenForMessageInsertedInChat()
+        listenToTypingUsers()
+    }
+    
+    fileprivate func findUserEmailWhenLoggedIn() {
         if AuthenticationService.instance.isLoggedIn {
             AuthenticationService.instance.findUserByEmail(completion: { (success) in
                 NotificationCenter.default.post(name: Notification_User_Data_Did_Change, object: nil)
             })
         }
-        
-        listenForMessageInsertedInChat()
-        listenToTypingUsers()
     }
     
     fileprivate func updateTypingUsersLabelVerbose(_ numberOfTypers: Int, _ names: String) {
@@ -58,12 +64,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     fileprivate func listenForMessageInsertedInChat() {
-        SocketService.instance.getChatMessage { (message) in
-            
+        socketService?.getChatMessage { (message) in
+
             if message.channelId == MessageService.instance.selectedChannel?.id && AuthenticationService.instance.isLoggedIn {
                 MessageService.instance.messages.append(message)
                 self.tableView.reloadData()
-                
+
                 if MessageService.instance.messages.count > 0 {
                     let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
                     self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
@@ -86,11 +92,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func listenToTypingUsers() {
-        SocketService.instance.getTypingUsers { (typingUsers) in
+        socketService?.getTypingUsers { (typingUsers) in
             guard let channelId = MessageService.instance.selectedChannel?.id else { return }
             var names = ""
             var numberOfTypers = 0
-            
+
             self.addUsersToTypingUsersLabel(typingUsers, channelId, &names, &numberOfTypers)
             self.updateTypingUsersLabelVerbose(numberOfTypers, names)
         }
@@ -158,7 +164,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             guard let channelId = MessageService.instance.selectedChannel?.id else { return }
             guard let message = messageTextField.text else { return }
             
-            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId, completion: { (success) in
+            socketService?.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId, completion: { (success) in
                 self.messageTextField.text = ""
                 self.messageTextField.resignFirstResponder()
             })
@@ -182,18 +188,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func messageTextFieldEditing(_ sender: Any) {
         guard let channelId = MessageService.instance.selectedChannel?.id else { return }
-        
+
         if messageTextField.text == "" {
             isTyping = false
             sendMessageButton.isHidden = true
-            SocketService.instance.socket.emit("stopType", channelId)
+            socketService?.socket.emit("stopType", channelId)
         } else {
             if isTyping == false {
                 sendMessageButton.isHidden = false
-                SocketService.instance.socket.emit("startType", channelId)
+                socketService?.socket.emit("startType", channelId)
             }
             isTyping = true
         }
     }
-    
 }
