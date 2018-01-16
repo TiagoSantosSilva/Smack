@@ -3,10 +3,8 @@
 Mini Slack clone. Introduction to the Observer pattern in Swift and closures.
 
 * Alamofire
-
-* SocketIO
-
-* SwiftyJSON
+* SocketIO
+* SwiftyJSON
 
 ![Screenshots](https://github.com/TiagoSantosSilva/Smack/blob/master/Screenshots/Smack.png)
 
