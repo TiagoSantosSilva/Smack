@@ -8,7 +8,6 @@ Mini Slack clone. Introduction to the Observer pattern in Swift and closures.
 
 ![Screenshots](https://github.com/TiagoSantosSilva/Smack/blob/master/Screenshots/Smack.png)
 
-
 ### TODO code changes
 
 * JSON Decoding: Bring all the functions into a generic one.
